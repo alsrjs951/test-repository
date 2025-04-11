@@ -7,3 +7,6 @@ def index(request):
 
 def mingeon(request):
     return render(request, 'main/mingeon.html')
+
+def dohun(request):
+    return render(request, 'main/dohun.html')
