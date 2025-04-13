@@ -13,3 +13,6 @@ def dohun(request):
 
 def hg(request):
     return render(request, 'main/hg.html')
+
+def hs(request):
+    return render(request, 'main/hs.html')
