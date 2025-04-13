@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Virtual Environment
+venv/
+
+# VS Code
+.vscode/
+
+# Django static/media
+/static/
+/media/
+
+# 기타
+*.log
+*.env
