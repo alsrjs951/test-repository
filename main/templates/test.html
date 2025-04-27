@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>여러 개의 모달창</title>
+<style>
+  .modal {
+    display: none; /* 처음에는 숨겨둡니다. */
+    position: fixed; /* 화면의 특정 위치에 고정합니다. */
+    z-index: 1; /* 다른 요소보다 위에 표시합니다. */
+    left: 0;
+    top: 0;
+    width: 100%; /* 전체 화면 너비 */
+    height: 100%; /* 전체 화면 높이 */
+    overflow: auto; /* 내용이 넘치면 스크롤 가능하게 합니다. */
+    background-color: rgba(0,0,0,0.4); /* 어두운 배경색 */
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 화면 중앙에 위치시킵니다. */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 모달창 너비 */
+  }
+
+  .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close-button:hover,
+  .close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<button id="signup">모달 1 열기</button>
+<button id="myBtn2">모달 2 열기</button>
+<button id="myBtn3">모달 3 열기</button>
+
+<div id="signupdmodal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <p>모달 1의 내용입니다.</p>
+  </div>
+</div>
+
+<div id="myModal2" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <p>모달 2의 내용입니다.</p>
+  </div>
+</div>
+
+<div id="myModal3" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <p>모달 3의 내용입니다.</p>
+  </div>
+</div>
+
+<script>
+// 각 버튼 요소 가져오기
+var btn1 = document.getElementById("signup");
+var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("myBtn3");
+
+// 각 모달창 요소 가져오기
+var signupdmodal1 = document.getElementById("signupdmodal");
+var modal2 = document.getElementById("myModal2");
+var modal3 = document.getElementById("myModal3");
+
+// 각 닫기 버튼 요소 가져오기
+var closeBtn1 = modal1.querySelector(".close-button");
+var closeBtn2 = modal2.querySelector(".close-button");
+var closeBtn3 = modal3.querySelector(".close-button");
+
+// 모달 열기 함수 (공통)
+function openModal(modal) {
+  modal.style.display = "block";
+}
+
+// 모달 닫기 함수 (공통)
+function closeModal(modal) {
+  modal.style.display = "none";
+}
+
+// 첫 번째 버튼 클릭 시 첫 번째 모달 열기
+btn1.onclick = function() {
+  openModal(signupdmodal1);
+}
+
+// 두 번째 버튼 클릭 시 두 번째 모달 열기
+btn2.onclick = function() {
+  openModal(modal2);
+}
+
+// 세 번째 버튼 클릭 시 세 번째 모달 열기
+btn3.onclick = function() {
+  openModal(modal3);
+}
+
+// 각 닫기 버튼 클릭 시 해당 모달 닫기
+closeBtn1.onclick = function() {
+  closeModal(modal1);
+}
+
+closeBtn2.onclick = function() {
+  closeModal(modal2);
+}
+
+closeBtn3.onclick = function() {
+  closeModal(modal3);
+}
+
+// 모달 외부 클릭 시 모달 닫기 (선택 사항)
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    closeModal(modal1);
+  }
+  if (event.target == modal2) {
+    closeModal(modal2);
+  }
+  if (event.target == modal3) {
+    closeModal(modal3);
+  }
+}
+</script>
+
+</body>
+</html>
